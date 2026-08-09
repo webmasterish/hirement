@@ -1,0 +1,97 @@
+# ##############################################################################
+# GENERIC
+# ##############################################################################
+
+# ------------------------------------------------------------------------------
+# OS
+# ------------------------------------------------------------------------------
+*~
+.Trash-*
+*.DS_Store
+._*
+Desktop.ini
+Thumbs.db
+lost+found/
+
+# ------------------------------------------------------------------------------
+# Editors / IDE
+# ------------------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+
+# ------------------------------------------------------------------------------
+# Logs, databases, dumps
+# ------------------------------------------------------------------------------
+logs/
+*.log
+*.sql
+*.sqlite
+backups/
+
+# ------------------------------------------------------------------------------
+# Archives
+# ------------------------------------------------------------------------------
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.tgz
+*.zip
+
+# ------------------------------------------------------------------------------
+# Dependencies / build output
+# ------------------------------------------------------------------------------
+node_modules/
+vendor/
+dist/
+build/
+coverage/
+.nyc_output/
+.sass-cache*
+cache/
+.cache/
+
+# ------------------------------------------------------------------------------
+# Scratch / experimental — anything starting with a double underscore
+# ------------------------------------------------------------------------------
+__*
+
+
+
+# ##############################################################################
+# SECRETS — see .claude/CLAUDE.md, these must never be committed
+# ##############################################################################
+
+*.env
+.env*
+credentials/
+secrets/
+
+# wordpress environment config (db creds, salts, api keys)
+# commit *.sample.php templates only
+**/.config/config.php
+**/.config/master_config.php
+**/.config/api_keys.php
+wp-config.php
+
+
+
+# ##############################################################################
+# WORDPRESS
+# ##############################################################################
+
+# core is vendored and upgraded via wp admin — not versioned here
+website/wp/cms/
+
+# uploads are content, not code
+website/wp/content/uploads/
+website/wp/content/upgrade/
+website/wp/content/upgrade-temp-backup/
+website/wp/content/wp-cache-config.php
+
+# generated theme assets
+compiled_styles.css
+compiled_scripts.js
