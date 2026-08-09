@@ -55,14 +55,14 @@ cache/
 .cache/
 
 # ------------------------------------------------------------------------------
-# Scratch / experimental — anything starting with a double underscore
+# Scratch, experimental, backups: anything starting with a double underscore
 # ------------------------------------------------------------------------------
 __*
 
 
 
 # ##############################################################################
-# SECRETS — see .claude/CLAUDE.md, these must never be committed
+# SECRETS: see .claude/CLAUDE.md, these must never be committed
 # ##############################################################################
 
 *.env
@@ -83,7 +83,7 @@ wp-config.php
 # WORDPRESS
 # ##############################################################################
 
-# core is vendored and upgraded via wp admin — not versioned here
+# core is vendored and upgraded via wp admin, not versioned here
 website/wp/cms/
 
 # uploads are content, not code

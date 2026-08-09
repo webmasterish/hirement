@@ -1,6 +1,6 @@
 # Hirement
 
-> Monorepo for everything related to [hirement.com](https://hirement.com)
+Monorepo for everything related to [hirement.com](https://hirement.com)
 
 
 ********************************************************************************
@@ -8,8 +8,8 @@
 ## Status
 
 
-Scaffold. Structure, config and docs only — the website has not been migrated
-in yet. It still lives at
+Scaffold. Structure, config and docs only. The website has not been migrated in
+yet, it still lives at
 `/media/data2/www/localhost/subs/hirement/httpdocs/website/wp`.
 
 
@@ -20,11 +20,11 @@ in yet. It still lives at
 
 | Dir | Contents |
 | --- | --- |
-| `.claude/` | Agent context — start here (`CLAUDE.md`) |
+| `.claude/` | Agent context, start with `CLAUDE.md` |
 | `docs/` | Project notes and runbooks |
-| `identity/` | Brand assets — logos, OG images, banners |
+| `identity/` | Brand assets: logos, OG images, banners |
 | `ops/` | Deploy, backup and maintenance scripts |
-| `website/` | The WordPress site (once migrated; core excluded) |
+| `website/` | The WordPress site once migrated, core excluded |
 
 
 ********************************************************************************

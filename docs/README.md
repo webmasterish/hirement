@@ -1,7 +1,7 @@
 # Docs
 
 
-Project notes and runbooks, migrated here from the loose markdown files.
+Project notes and runbooks, to be migrated here from the loose markdown files.
 
 
 ********************************************************************************
@@ -11,9 +11,12 @@ Project notes and runbooks, migrated here from the loose markdown files.
 
 | Source | Target | Notes |
 | --- | --- | --- |
-| `../../website/Hirement_website_notes.md` | `docs/website/` | 3k+ lines, chronological. Split by topic: hosting, deploy, DNS/SSL, DB, content model, MCP. |
-| `../../notes/Hirement_Dev_Notes.md` | `docs/dev/` | Short, recent. |
-| `/media/data2/www/sites/Hirement.com/Hirement_notes.md` | `docs/business/` | **Full of live credentials.** Strip every password/key/token; replace with a pointer to where it lives. |
+| `website/Hirement_website_notes.md` | `docs/website/` | 3k+ lines, chronological. Split by topic: hosting, deploy, DNS and SSL, DB, content model, MCP. |
+| `notes/Hirement_Dev_Notes.md` | `docs/dev/` | Short, recent. |
+| `Hirement_notes.md` (business) | `docs/business/` | Full of live credentials. Strip every password, key and token, and replace with a pointer to where it lives. |
+
+Sources sit outside this repo. Don't open them without being asked; see the
+scope rule in `.claude/CLAUDE.md`.
 
 
 ********************************************************************************
@@ -21,5 +24,5 @@ Project notes and runbooks, migrated here from the loose markdown files.
 ## Rule
 
 
-Nothing lands here until credentials are stripped. When a note references a
-secret, write what it is and where to find it — never the value.
+Nothing lands here until credentials are stripped. Where a note references a
+secret, write what it is and where to find it, never the value.
