@@ -11,7 +11,12 @@ external paths below. Do not assume a path exists in this repo without checking.
 
 ********************************************************************************
 
-## Scope — stay inside the repo
+## Working rules
+
+
+--------------------------------------------------------------------------------
+
+### Stay inside the repo
 
 
 **Do not read, write, or run anything outside this repo directory unless
@@ -19,13 +24,40 @@ explicitly asked to.** That includes the whole surrounding `httpdocs/` tree —
 the live dev site, and especially `httpdocs/notes/`, which is the owner's
 personal scratchpad, not project input.
 
-The paths below are recorded for orientation only. They are not yours to touch
-until asked, file by file.
+The paths further down are recorded for orientation only. They are not yours to
+touch until asked, file by file.
 
 
 --------------------------------------------------------------------------------
 
-### Where things live today
+### Nothing gets deleted
+
+
+**Never delete or overwrite a file unless explicitly told to.** Move it instead
+to a backup under a `__`-prefixed dir (gitignored):
+
+```
+__/backups/<YYYY-MM-DD>/<original/relative/path>
+```
+
+Same when replacing a file — back the old version up first, then write. Say what
+was backed up and where. Whether it's kept or deleted later is the owner's call,
+never yours.
+
+
+--------------------------------------------------------------------------------
+
+### Be concise
+
+
+Clear and to the point. No preamble, no restating the question, no explaining
+work that speaks for itself. Report what changed and anything that genuinely
+needs a decision. Expand only when asked for detail.
+
+
+********************************************************************************
+
+## Where things live today
 
 
 | What | Path |
@@ -201,9 +233,21 @@ through. Until then the theme stays where it is, tracked by its own repo.
 ## Working notes
 
 
-- Stay inside the repo (see the scope rule above).
 - The local site serves from the live dev paths — moving files out of that tree
   breaks it. Only on explicit instruction.
 - Don't reformat existing theme code to modern PSR style; match what's there.
 - Don't commit `logs/`, `backups/`, `*.sql`, `node_modules/`, `__*`.
-- Prefer appending a dated section to the notes files over rewriting them.
+- Commits: `main`, no branches or PRs unless asked. Message style is a short
+  scope prefix + imperative summary (`ops: add rsync deploy script`); inside the
+  theme, follow its own `Admin/Panel/field_url(): fix escaping` convention.
+- Push only when asked — `/done` counts as the ask.
+
+
+********************************************************************************
+
+## Skills
+
+
+- **`/done`** (`.claude/skills/done/`) — end-of-session wrap-up: persist memory
+  and docs, pre-flight checks, commit this session's files only, push, deploy
+  (once one exists), then write a session file to `__/sessions/`.
