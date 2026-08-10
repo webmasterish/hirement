@@ -6,6 +6,16 @@ Project notes and runbooks, to be migrated here from the loose markdown files.
 
 ********************************************************************************
 
+## What's here
+
+
+| Doc | What it is |
+| --- | --- |
+| `business/direction-review-2026-08-10.md` | Where the project stands and what the options are. Traffic, search and backlink data, valuation, exit routes, monetisation options, recommended sequence. No decision made yet. Read this before proposing any work on the site. |
+
+
+********************************************************************************
+
 ## To migrate
 
 
