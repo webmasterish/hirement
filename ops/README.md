@@ -19,7 +19,7 @@ sitting in `website/config/` in the dev tree.
 ## To build
 
 
-- `deploy/` - rsync deploy to Hostinger, replacing the hand-run commands in the
+- `deploy/` - rsync deploy to Hetzner, replacing the hand-run commands in the
 	notes. Has to preserve the two production-only divergences documented in
 	`.claude/CLAUDE.md`: `Traffic_Generator.php` removed, and `Listings/Components`
 	commented out in `DotAim.php`.
@@ -36,5 +36,11 @@ Once `deploy/` exists, wire it into step 5 of the `/done` skill.
 ## Target
 
 
-Production: Hostinger, `~/domains/hirement.com/public_html/`, reached with
-`ssh u918436082@hostinger`. DNS through Cloudflare. No CI.
+Production: the owner's Hetzner server since 2026-07-30,
+`/var/www/vhosts/dotaim/hirement.com`, reached with `ssh webmasterish@hetzner-dotaim`.
+DNS through Cloudflare. No CI.
+
+Hosting history is DigitalOcean, then Hostinger in 2025-08, then Hetzner. Both
+older hosts are dead references. The two production divergences noted in
+`.claude/CLAUDE.md` date from Hostinger and need re-checking on Hetzner before
+anything is built around them.

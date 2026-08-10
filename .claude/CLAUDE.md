@@ -8,6 +8,10 @@ Status: scaffold only. The repo holds structure, config and docs so far. The
 website has not been migrated in yet; it still lives at the external paths
 listed below. Don't assume a path exists in this repo without checking.
 
+The site is live and growing on its own. The code has not been touched in about
+a year, on purpose, while the owner decides what to do with the project. Nothing
+gets built or migrated until that decision is made. See "The site today".
+
 
 ********************************************************************************
 
@@ -74,6 +78,106 @@ Applies to everything: chat replies, code comments, docs, commit messages.
 
 ********************************************************************************
 
+## The site today
+
+
+A directory of job boards and hiring tools. Roughly 370+ listings, organised
+under `/listing/`, `/listing_category/` (job-boards, tools) and `/tag/`, plus a
+few long-form list posts and a `/suggest/` submission page.
+
+
+--------------------------------------------------------------------------------
+
+### Traffic
+
+Matomo, `idSite=3` on the DotAim instance, reachable through the Matomo MCP
+connector. Figures below are from 2026-08-10.
+
+| Period | Visits |
+| --- | --- |
+| 2024 | 1,727 |
+| 2025 | 5,669 |
+| 2026, to Aug 10 | 8,750 |
+
+Around 1,600 visits/month and still climbing, with no code changes for a year.
+Last 12 months: 12,134 visits, 28,814 actions, 2.4 actions/visit, 53% bounce.
+
+- Sources: search 63% (Google 7,428 of 7,622, everything else negligible),
+  direct 35%, AI assistants 145, websites 43, social 9.
+- Countries: US 2,653, India 2,001, Pakistan 683, Nigeria 593, Canada 343,
+  Kenya 250.
+- Devices: 70% desktop.
+- Matomo keyword data is useless, Google reports "not defined" for all of it.
+  Google Search Console is the source for query data.
+
+Two things to treat with suspicion: direct entry is 4,298 visits at 79% bounce
+against 40% for search, which looks like bot traffic, and China contributes 333
+visits at 99% bounce. Neither has been verified yet.
+
+
+--------------------------------------------------------------------------------
+
+### The referral flow
+
+Every outbound listing link carries `?ref=hirement`. Over the last 12 months
+that produced **8,195 outbound clicks across 371 destinations**, all attributed
+and measurable in Matomo under Behaviour > Outlinks.
+
+Top destinations by clicks: wphired 901, kickstartremote 686, jsremotely 529,
+wesellremotely 178, meterwork 177, flexhired 159, rxresu.me 139.
+
+This is the project's real asset and it is currently given away for free. Any
+monetisation thinking should start here, not with display ads.
+
+
+--------------------------------------------------------------------------------
+
+### Money
+
+Revenue is $0. Nothing has ever paid out.
+
+- TinyAdz (`tinyadz.com`), added 2025-04-17. $36.81 estimated earnings over
+  about 16 months, 2,387 ad views, 158 verified clicks. Payout threshold is
+  $100, so nothing has been received. Only the full-screen banner is enabled.
+- Listed for sale 2024-06-13 at `https://acquire.website/item/hirement/` for
+  $1,500, a price suggested by that site's owner. No serious offers. That was at
+  roughly a tenth of today's traffic.
+- Adzuna API key sits in `wp/.config/api_keys.php`. Nobody remembers what it was
+  for or whether anything still calls it. Worth grepping the theme before
+  assuming it matters.
+
+
+--------------------------------------------------------------------------------
+
+### Accounts
+
+- `hirement@gmail.com`
+- `https://x.com/hirement`
+- `https://www.linkedin.com/in/hirement/`
+- `https://www.youtube.com/@hirement`
+- `https://www.tiktok.com/@hirement`
+- `https://substack.com/@hirement`
+- `https://github.com/hirement`
+
+All dormant. Social sent 9 visits in the last 12 months.
+
+
+--------------------------------------------------------------------------------
+
+### Data sources
+
+- Matomo: live, through the MCP connector, `idSite=3`.
+- Google Search Console: the owner has it. No API connector, so query data
+  arrives as manual CSV exports.
+- Ahrefs: free Webmaster Tools account, verified site. Backlinks and a limited
+  organic keyword view. No API on the free tier, so also manual exports.
+
+Manual exports go in `__/data/<source>/<YYYY-MM-DD>/`, which is gitignored.
+Screenshots go in `__/screenshots/`.
+
+
+********************************************************************************
+
 ## Where things live today
 
 
@@ -88,9 +192,9 @@ Applies to everything: chat replies, code comments, docs, commit messages.
 | Brand identity assets | `/media/data2/www/sites/Hirement.com/identity` |
 
 `Hirement_website_notes.md` is the project's real history: hosting setup, Apache
-vhosts, SSL, DB migrations, the 2025-08 DigitalOcean to Hostinger move, deploy
-commands, MCP setup. Chronological, newest at the bottom. Good background for
-infra work, but ask before opening it.
+vhosts, SSL, DB migrations, the hosting moves, deploy commands, MCP setup.
+Chronological, newest at the bottom. Good background for infra work, but ask
+before opening it. It may not cover the 2026-07-30 move to Hetzner yet.
 
 
 --------------------------------------------------------------------------------
@@ -111,7 +215,7 @@ The SSH host alias `webmasterish.github.com` maps to a specific key in
 
 The notes files and `wp/.config/*` hold live plaintext credentials: DB
 passwords, WP salts, Cloudflare / Twitter / Adzuna API keys, Mailchimp,
-Google/GitHub/social account passwords, Hostinger SSH and MCP app passwords.
+Google/GitHub/social account passwords, host SSH and MCP app passwords.
 
 - Never commit any of it, private repo or not.
 - When migrating notes into `docs/`, strip the credentials and leave a pointer
@@ -141,10 +245,13 @@ website/wp/
 - Local URL `http://hirement.localhost/website/wp`, local DB
   `hirement_website_wp` (root/root).
 - `cms/` is not versioned here and stays excluded.
-- Third-party plugins, none of them ours: wp-job-manager, contact-form-7 (plus
-  conditional fields, flamingo), mailster, newsletter (plus extensions),
-  wp-super-cache, wp-crontrol, advanced-cron-manager, wp-extended-search,
-  wp-term-order, mailgun, mcp-adapter.
+- Third-party plugins present locally, none of them ours: wp-job-manager,
+  contact-form-7 (plus conditional fields, flamingo), mailster, newsletter (plus
+  extensions), wp-super-cache, wp-crontrol, advanced-cron-manager,
+  wp-extended-search, wp-term-order, mailgun, mcp-adapter.
+- Local is not production. Several of these were experiments and are not active
+  on the live site, wp-job-manager among them. Don't infer the product from the
+  local plugin list. Check live before assuming a feature exists.
 
 
 ********************************************************************************
@@ -166,6 +273,9 @@ meta boxes and a REST API.
 - `style.css` holds the WP theme header only, no styles.
 - Releases: `npm version patch|minor|major -m "msg"`, which runs `git add --all`
   and pushes with tags through npm hooks.
+- Untouched for about a year. That is a deliberate pause, not neglect: the owner
+  stopped development while deciding the project's direction. Expect stale
+  assumptions in the code and don't treat its last state as considered.
 
 
 --------------------------------------------------------------------------------
@@ -211,13 +321,21 @@ stack is Apache and MySQL under `/media/data2/www/localhost`.
 ## Deployment (current, manual)
 
 
-Production runs on Hostinger (`ssh u918436082@hostinger`,
-`~/domains/hirement.com/public_html/`), moved off DigitalOcean in 2025-08. DNS
-through Cloudflare.
+Production runs on the owner's own Hetzner server since 2026-07-30:
+
+```
+ssh webmasterish@hetzner-dotaim
+/var/www/vhosts/dotaim/hirement.com
+```
+
+DNS through Cloudflare. Hosting history: DigitalOcean, then Hostinger in
+2025-08, then Hetzner in 2026-07-30. Hostinger and DigitalOcean are both dead
+references now; anything in the notes pointing at them is stale.
 
 Deploys are `rsync -auvz --exclude-from=website/config/rsync_exclude` from the
 local tree, logged to `website/logs/`. No CI. Two production-only divergences
-are recorded in the notes and will bite if blindly overwritten:
+are recorded in the notes. They date from the Hostinger era, so re-check whether
+they still apply on Hetzner before writing a deploy script around them:
 
 1. `includes/DotAim/Admin/Components/App_Settings/sections/Traffic_Generator.php`
    is deleted on prod, because puphpeteer/Puppeteer breaks there.
@@ -255,6 +373,8 @@ stays where it is until then, tracked by its own repo.
 ## Working notes
 
 
+- Current phase is deciding the project's direction, not building. No migration,
+  no refactor, no deploy tooling until that is settled.
 - The local site serves from the live dev paths, so moving files out of that
   tree breaks it. Only on explicit instruction.
 - Don't reformat existing theme code to modern PSR style.

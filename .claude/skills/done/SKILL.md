@@ -165,7 +165,7 @@ wasn't here.
 - What's unfinished, and why it was left.
 
 ## Needs doing elsewhere
-- Commands to run on live, things to do in wp-admin, Cloudflare or Hostinger,
+- Commands to run on live, things to do in wp-admin, Cloudflare or on the host,
   anything waiting on a person. Exact commands in a code block, copy-pasteable.
 
 ## Backed up
